@@ -10,17 +10,20 @@
 </head>
 <body>
     <h1 class="text-center mb-4">RF Measurement Calculator</h1>
-    <div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="container d-flex align-items-center justify-content-center">
         <div class="calculator bg-dark p-4 rounded d-flex">
             <div id="calculator-screen" class="screen bg-black text-center p-4 rounded">
                 <span id="result-display" class="result-display">0.00</span>
             </div>
-            <div id="button-container" class="button-container d-flex flex-column ms-4">
+            <div id="button-container" class="button-container d-flex flex-wrap ms-4">
                 <button class="btn btn-primary mb-2" onclick="selectMeasurement('SNR')">SNR</button>
                 <button class="btn btn-primary mb-2" onclick="selectMeasurement('-3dB Bandwidth')">-3dB Bandwidth</button>
                 <button class="btn btn-primary mb-2" onclick="selectMeasurement('Insertion Loss')">Insertion Loss</button>
                 <button class="btn btn-primary mb-2" onclick="selectMeasurement('Noise Figure')">Noise Figure</button>
                 <button class="btn btn-primary mb-2" onclick="selectMeasurement('Return Loss')">Return Loss</button>
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('System Noise Figure')">System Noise Figure</button>
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('VSWR')">VSWR</button>
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('IMD3')">IMD3</button>
             </div>
             <div id="input-container" class="input-container d-none">
                 <form id="measurement-form">
@@ -30,6 +33,6 @@
             </div>
         </div>
     </div>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

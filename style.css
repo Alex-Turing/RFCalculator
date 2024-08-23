@@ -9,6 +9,11 @@ body {
     font-family: 'Roboto Mono', monospace;
 }
 
+.container{
+    height: 100%;
+    padding: 15% 0%;
+}
+
 h1 {
     color: #ecf0f1;
     font-family: 'Roboto Mono', monospace;
@@ -24,7 +29,7 @@ h1 {
 .screen {
     width: 70%;
     min-height: 120px;
-    font-size: 2.5rem;
+    font-size: 5rem;
     font-family: 'VT323', monospace;
     color: #D3D3D3;
     display: flex;
@@ -34,6 +39,9 @@ h1 {
 
 .button-container{
     width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .button-container .btn, 
@@ -44,12 +52,26 @@ h1 {
     border: none;
     color: #ffffff;
     border-radius: 0.25rem;
+    flex: 1 1 45%; /* Esto asegura que los botones se distribuyan en 2 columnas */
+    text-align: center;
 }
 
 .button-container .btn:hover, 
 .input-container .btn:hover {
     background-color: #6c757d;
     color: #ffffff;
+}
+
+.form-label{
+    color: #D3D3D3;
+}
+
+#measurement-form{
+    padding: 20px;
+}
+
+.btn-secondary{
+    margin: 20px;
 }
 
 .input-container input {
