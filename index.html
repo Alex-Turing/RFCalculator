@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF Measurement Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-center mb-4">RF Measurement Calculator</h1>
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="calculator bg-dark p-4 rounded d-flex">
+            <div id="calculator-screen" class="screen bg-black text-center p-4 rounded">
+                <span id="result-display" class="result-display">0.00</span>
+            </div>
+            <div id="button-container" class="button-container d-flex flex-column ms-4">
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('SNR')">SNR</button>
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('-3dB Bandwidth')">-3dB Bandwidth</button>
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('Insertion Loss')">Insertion Loss</button>
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('Noise Figure')">Noise Figure</button>
+                <button class="btn btn-primary mb-2" onclick="selectMeasurement('Return Loss')">Return Loss</button>
+            </div>
+            <div id="input-container" class="input-container d-none">
+                <form id="measurement-form">
+                    <!-- Dynamic input fields will be injected here by JavaScript -->
+                </form>
+                <button class="btn btn-secondary mt-3" onclick="goBack()">Back</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
