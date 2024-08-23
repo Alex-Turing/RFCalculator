@@ -24,13 +24,14 @@ function generateInputFields(type) {
         form.innerHTML += createInputField('Incident Power (dBm)', 'incident-power', 'Incident Power');
         form.innerHTML += createInputField('Reflected Power (dBm)', 'reflected-power', 'Reflected Power');
     } else if (type === 'System Noise Figure') {
-        form.innerHTML += createInputField('Input Noise Figure (dB)', 'input-nf', 'Input Noise Figure');
+        form.innerHTML += createInputField('Input Noise Figure 1 (dB)', 'input-nf1', 'Input Noise Figure 1');
         form.innerHTML += createInputField('Gain (dB)', 'gain', 'System Gain');
+        form.innerHTML += createInputField('Input Noise Figure 2 (dB)', 'input-nf2', 'Input Noise Figure 2');
     } else if (type === 'VSWR') {
         form.innerHTML += createInputField('Reflection Coefficient', 'reflection-coefficient', 'Reflection Coefficient');
     } else if (type === 'IMD3') {
-        form.innerHTML += createInputField('IM3 Coefficient (dBm)', 'im3-coefficient', 'Intermodulation Coefficient');
         form.innerHTML += createInputField('Fundamental Power (dBm)', 'fundamental-power', 'Fundamental Power');
+        form.innerHTML += createInputField('IM3 Coefficient (dBm)', 'im3-coefficient', 'Intermodulation Coefficient');
     }
 
     form.innerHTML += `<button type="button" class="btn btn-success" onclick="calculateResult('${type}')">Calculate</button>`;
@@ -75,17 +76,17 @@ function calculateResult(type) {
         result = incidentPower - reflectedPower;
         units = 'dB';
     } else if (type === 'System Noise Figure') {
-        const nf1 = parseFloat(document.getElementById('nf1').value);
-        const g1 = parseFloat(document.getElementById('g1').value);
-        const nf2 = parseFloat(document.getElementById('nf2').value);
+        const nf1 = parseFloat(document.getElementById('input-nf1').value);
+        const g1 = parseFloat(document.getElementById('gain').value);
+        const nf2 = parseFloat(document.getElementById('input-nf2').value);
         result = nf1 + (nf2 - 1) / g1;
         units = 'dB';
     } else if (type === 'VSWR') {
-        const gamma = parseFloat(document.getElementById('gamma').value);
+        const gamma = parseFloat(document.getElementById('reflection-coefficient').value);
         result = (1 + gamma) / (1 - gamma);
     } else if (type === 'IMD3') {
-        const p1 = parseFloat(document.getElementById('p1').value);
-        const im3 = parseFloat(document.getElementById('im3').value);
+        const p1 = parseFloat(document.getElementById('fundamental-power').value);
+        const im3 = parseFloat(document.getElementById('im3-coefficient').value);
         result = (2 * p1) - im3;
         units = 'dBc';
     }
